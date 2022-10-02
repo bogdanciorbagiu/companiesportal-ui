@@ -1,0 +1,112 @@
+<div class="page-header">
+  <div class="container">
+    <h1>Company overview</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row top-row">
+    <div class="col-xs-12 row end-xs">
+      <a routerLink="/watchlist" color="primary" mat-raised-button>
+        <mat-icon>chevron_left</mat-icon>
+        Go Back
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <form #companyOverviewForm="ngForm">
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Symbol</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.symbol" name="Symbol" [readonly]="true">
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Asset Type</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.assetType" name="Asset Type" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Name</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.name" name="Name" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.description" name="Description" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Exchange</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.exchange" name="Exchange" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Currency</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.currency" name="Currency" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Country</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.country" name="Country" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Sector</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.sector" name="Sector" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Industry</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.industry" name="Industry" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Address</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.address" name="Address" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Fiscal year end</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.fiscalYearEnd" name="Fiscal year end" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Latest quarter</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.latestQuarter" name="Latest quarter" [readonly]="true">
+            </mat-form-field>
+          </div>
+
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Market capitalization</mat-label>
+              <input type="text" matInput [(ngModel)]="companyOverview.marketCapitalization" name="Market capitalization" [readonly]="true">
+            </mat-form-field>
+          </div>
+        </div>
+      </form>
+  </div>

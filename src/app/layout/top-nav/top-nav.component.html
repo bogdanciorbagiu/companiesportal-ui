@@ -1,0 +1,26 @@
+<mat-toolbar color="primary">
+  <div class="container">
+    <a routerLink="/" mat-fab color="accent">
+      <mat-icon>home</mat-icon>
+    </a>
+    <a routerLink="/watchlist" mat-raised-button class="ml-1" *ngIf='loginService.currentUserName != ""'>
+      Watchlist
+    </a>
+    <a routerLink="/companies" mat-raised-button class="ml-1" *ngIf='loginService.currentUserName != ""'>
+      Companies
+    </a>
+
+    <!-- <a routerLink="/students" mat-raised-button class="ml-1" *ngIf='loginService.currentUserName != "" && loginService.role == "Admin"'>
+      Students
+    </a> -->
+    <a routerLink="/users" mat-raised-button class="ml-1" *ngIf='loginService.currentUserName != "" && loginService.role == "Admin"'>
+      Users
+    </a>
+    <!-- <a routerLink="/login" mat-raised-button class="ml-1" *ngIf='loginService.currentUserName == ""'>
+      Login
+    </a> -->
+    <a routerLink="" (click)="loginService.Logout()" mat-raised-button class="ml-1" *ngIf='loginService.currentUserName != "" || loginService.IsAuthenticated()'>
+      Logout
+    </a>
+  </div>
+</mat-toolbar>

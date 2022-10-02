@@ -1,0 +1,58 @@
+<div class="page-header">
+  <div class="container">
+      <h1>Watchlist</h1>
+      <h2 *ngIf='loginService.currentUserName != ""'>{{'Welcome, ' + loginService.currentUserName}}</h2>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-1">
+    <div class="col-xs-12">
+      <input type="text" class="search-input" placeholder="Filter watchlist"
+      [(ngModel)]="filterString"
+      (keyup)="filterWatchlist()">
+    </div>
+  </div>
+<div class="mt-1 mat-elevation-z8">
+  <table mat-table matSort [dataSource]="dataSource" class="">
+
+    <!-- Symbol column -->
+    <ng-container matColumnDef="symbol">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+      <td mat-cell *matCellDef="let element"> {{element.companySymbol}} </td>
+    </ng-container>
+
+    <!-- Stock price column -->
+    <ng-container matColumnDef="stockPrice">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock price </th>
+      <td mat-cell *matCellDef="let element"> {{element.currentStockPrice}} </td>
+    </ng-container>
+
+    <!-- Overview column -->
+    <ng-container matColumnDef="overview">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="onOverview(element.companySymbol)" class="ml-1">Overview</button>
+      </td>
+    </ng-container>
+
+    <!-- Delete column -->
+    <ng-container matColumnDef="remove">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="primary" (click)="onRemove(element.companySymbol)" class="ml-1">Remove</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+
+</div>
+
+</div>

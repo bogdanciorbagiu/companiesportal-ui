@@ -1,0 +1,78 @@
+<div class="page-header">
+  <div class="container">
+      <h1>Companies</h1>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row mt-1">
+    <div class="col-xs-12">
+      <input id="searchtext"type="text" class="search-input" placeholder="Search companies"
+      [(ngModel)]="searchtext">
+      <button mat-raised-button color="primary" (click)="getSpecificCompanies()" class="ml-1">Search</button>
+    </div>
+  </div>
+
+  <div class="mt-1 mat-elevation-z8">
+    <table mat-table matSort [dataSource]="dataSource" class="">
+      <!-- Symbol column -->
+      <ng-container matColumnDef="symbol">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Symbol </th>
+        <td mat-cell *matCellDef="let element"> {{element.symbol}} </td>
+      </ng-container>
+
+      <!-- Name column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <!-- Type column -->
+      <ng-container matColumnDef="type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.type}} </td>
+      </ng-container>
+
+      <!-- Region column -->
+      <ng-container matColumnDef="region">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Region </th>
+        <td mat-cell *matCellDef="let element"> {{element.region}} </td>
+      </ng-container>
+
+      <!-- Currency column -->
+      <ng-container matColumnDef="currency">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Currency </th>
+        <td mat-cell *matCellDef="let element"> {{element.currency}} </td>
+      </ng-container>
+
+      <!-- Market open column -->
+      <ng-container matColumnDef="marketOpen">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Market open </th>
+        <td mat-cell *matCellDef="let element"> {{element.marketOpen}} </td>
+      </ng-container>
+
+      <!-- Market close column -->
+      <ng-container matColumnDef="marketClose">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Market close </th>
+        <td mat-cell *matCellDef="let element"> {{element.marketClose}} </td>
+      </ng-container>
+
+      <!-- Add column -->
+      <ng-container matColumnDef="add">
+        <th mat-header-cell *matHeaderCellDef>  </th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-raised-button color="primary" (click)="onAddToWatchlist(element.symbol)" class="ml-1">Add</button>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+      <mat-paginator [length]="100"
+                [pageSize]="10"
+                [pageSizeOptions]="[5, 10, 25, 100]"
+                aria-label="Select page">
+      </mat-paginator>
+  </div>
+</div>
